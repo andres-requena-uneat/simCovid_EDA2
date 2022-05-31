@@ -19,12 +19,31 @@ public class CovidLogic {
 
     public List<List<Person>> advanceDay(List<List<Person>> population, int rows, int columns) {
         final List<List<Person>> lastIteration = population;
-        return Stream.iterate(0, y -> y < rows, y -> y+1)
+        final List<List<Person>> currentIteration = Stream.iterate(0, y -> y < rows, y -> y+1)
                 .map(y -> Stream.iterate(0, x -> x < columns, x -> x+1)
                         .map(x -> new Person(x, y, population.get(y).get(x).getState(), population.get(y).get(x).getDaysInState()))
                         .map(person -> calcState(person, rows, columns, lastIteration)).collect(Collectors.toList()))
                 .collect(Collectors.toList());
+        final Statistics dayStatistics = new Statistics(currentIteration);
+
+        printStatistics(dayStatistics);
+
+
+
+        return currentIteration;
     }
+
+    private void printStatistics(Statistics dayStatistics) {
+        System.out.println("Not Infected: "+dayStatistics.getNotInfected());
+        System.out.println("Infected: "+dayStatistics.getInfected());
+        System.out.println("Immunized: "+dayStatistics.getImmune());
+        System.out.println("Surrounded: "+dayStatistics.getSurrounded());
+        System.out.println("Masked: "+dayStatistics.getMasked());
+        System.out.println("Dead: "+dayStatistics.getDead());
+        System.out.println("===================================");
+
+    }
+
     public Person calcState(Person person, int rows, int columns, List<List<Person>> population){
         final List<Person> neighbours = findNeighbours(person, columns, rows, population);
         final long infectedNeighbours = countInfectedNeighbours(neighbours);

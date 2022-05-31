@@ -44,6 +44,7 @@ public class CovidGame {
                     .collect(Collectors.toUnmodifiableList());
             // Asignación de estado y pintado en la ventana
             game.setCellStates(cellStates);
+
             // Paso del tiempo.
             Thread.sleep(MSECONDS_PER_DAY);
         }
