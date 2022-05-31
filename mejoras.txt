@@ -1,0 +1,23 @@
+Nombre: Muerte
+Descripcion: Si la persona está infectada, tiene un 1% de probabilidad de morir.
+VirusParameter: mortalityRate
+CovidGame: VIRUS_MORTALITY_RATE
+Estado: El estado se muestra con el emoji 💀
+===================================================
+Nombre: Rodeado
+Descripcion: Si 3 o mas vecinos de la persona estan infectados,
+		 la persona estará rodeada, cambiando al estado MASKED (mascarilla) 
+		 en la siguiente iteracion.
+VirusParameter: surrounding
+CovidGame: SURROUNDING_INFECTED
+Estado: El estado se muestra con el emoji 😬.
+===================================================
+Nombre: Mascarilla
+Descripcion: La persona tiene una posibilidad reducida de verse contagiada. 
+		 Si la cantidad vecinos infectados es menor que el parametro
+		 SURROUNDING_INFECTED, la persona se relaja y se quita la mascarilla,
+		 volviendo al estado inicial de "No Infectado".
+VirusParameter: maskedTransmissionPercent
+CovidGame: MASKED_TRANSMISSION_PERCENT
+Estado: El estado se muestra con el emoji 😷.
+===================================================
