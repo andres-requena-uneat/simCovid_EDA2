@@ -31,6 +31,9 @@ public class CovidGameWindow {
         public void windowClosing(WindowEvent e) {
             System.exit(0);
         }
+        public void windowClosing(boolean close) {
+            if (close) System.exit(0);
+        }
     }
 
     public CovidGameWindow() {
@@ -68,5 +71,9 @@ public class CovidGameWindow {
             cells[i] = newCell;
             panel.add(newCell);
         }
+    }
+
+    public void close(){
+        root.dispose();
     }
 }

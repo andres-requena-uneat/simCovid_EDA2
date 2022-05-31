@@ -1,5 +1,5 @@
 Nombre: Muerte
-Descripcion: Si la persona está infectada, tiene un 1% de probabilidad de morir.
+Descripcion: Si la persona está infectada, tiene un 1% de probabilidad de morir cada dia.
 VirusParameter: mortalityRate
 CovidGame: VIRUS_MORTALITY_RATE
 Estado: El estado se muestra con el emoji 💀

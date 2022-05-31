@@ -1,13 +1,12 @@
 package edaii.simcovid.app;
 
 import edaii.simcovid.game.CovidLogic;
-import edaii.simcovid.game.DayTuple;
+import edaii.simcovid.game.Statistics;
 import edaii.simcovid.game.VirusParameters;
 import edaii.simcovid.ui.CovidGameWindow;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class CovidGame {
@@ -33,9 +32,14 @@ public class CovidGame {
         // Inicialización de logica de juego, población, ...
         final CovidLogic covidLogic = new CovidLogic(virusParameters);
         List<List<Person>> population = initializePopulation(ROWS, COLUMNS);
-        while (true) {
+        boolean finished = false;
+        while (!finished) {
+
+            
             // Actualización del estado de la población
             population = covidLogic.advanceDay(population, ROWS, COLUMNS);
+            
+
             // Representación del estado de la población como una lista
             final List<Integer> cellStates = population
                     .stream()
@@ -45,9 +49,13 @@ public class CovidGame {
             // Asignación de estado y pintado en la ventana
             game.setCellStates(cellStates);
 
+            finished = new Statistics(population).eradicated();
+
             // Paso del tiempo.
             Thread.sleep(MSECONDS_PER_DAY);
         }
+        game.close();
+        System.out.println("Covid has been eradicated!");
     }
     // Genera una lista de listas de personas donde el infectado estará en el centro.
     private static List<List<Person>> initializePopulation(int rows, int columns)

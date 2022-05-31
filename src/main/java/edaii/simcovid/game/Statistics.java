@@ -23,6 +23,10 @@ public class Statistics {
         this.dead = flattenedList.stream().filter(i -> i.getState() == 5).count();
     }
 
+    public boolean eradicated(){
+        return this.infected == 0 ? true : false;
+    }
+
 
     public long getNotInfected() {
         return notInfected;
