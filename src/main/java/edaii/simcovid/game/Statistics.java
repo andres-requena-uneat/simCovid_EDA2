@@ -2,6 +2,8 @@ package edaii.simcovid.game;
 
 import edaii.simcovid.app.Person;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -22,6 +24,29 @@ public class Statistics {
         this.masked = flattenedList.stream().filter(i -> i.getState() == 4).count();
         this.dead = flattenedList.stream().filter(i -> i.getState() == 5).count();
     }
+
+    public List<Integer> getStatsAsList(){
+        List<Integer> temp = new ArrayList<>();
+        temp.add((int)this.getNotInfected());
+        temp.add((int)this.getInfected());
+        temp.add((int)this.getImmune());
+        temp.add((int)this.getSurrounded());
+        temp.add((int)this.getMasked());
+        temp.add((int)this.getDead());
+        return temp;
+    }
+
+    public List<String> getStatsAsListOfString(){
+        List<String> temp = new ArrayList<>();
+        temp.add("Not Infected: " + this.getNotInfected());
+        temp.add("Infected: " + this.getInfected());
+        temp.add("Immune: " + this.getImmune());
+        temp.add("Surrounded: " + this.getSurrounded());
+        temp.add("Masked: " + this.getMasked());
+        temp.add("Dead: " + this.getDead());
+        return temp;
+    }
+
 
     public boolean eradicated(){
         return this.infected == 0 ? true : false;

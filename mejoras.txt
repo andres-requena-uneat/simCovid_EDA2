@@ -5,9 +5,9 @@ CovidGame: VIRUS_MORTALITY_RATE
 Estado: El estado se muestra con el emoji 💀
 ===================================================
 Nombre: Rodeado
-Descripcion: Si 3 o mas vecinos de la persona estan infectados,
-		 la persona estará rodeada, cambiando al estado MASKED (mascarilla) 
-		 en la siguiente iteracion.
+Descripcion: Si 3 o mas vecinos de la persona estan infectados, la persona cambiará a estado SURROUNDED.
+		 En este estado la persona es tan cuidadosa que le es imposible infectarse. Además, la persona
+		 empezará a usar una mascarilla a partir del siguiente día.
 VirusParameter: surrounding
 CovidGame: SURROUNDING_INFECTED
 Estado: El estado se muestra con el emoji 😬.
@@ -21,3 +21,12 @@ VirusParameter: maskedTransmissionPercent
 CovidGame: MASKED_TRANSMISSION_PERCENT
 Estado: El estado se muestra con el emoji 😷.
 ===================================================
+Nombre: Estadisticas
+Descripción: Se muestra por consola las estadísticas correspondientes a cada día.
+		 Mostrando en número de personas sanas, infectadas, inmunizadas, rodeadas,
+		 enmascaradas, y muertas.
+===================================================
+Nombre: Deteccion de fin del juego
+Descripcion: En el momento en que el numero de infectados llega a cero, 
+		 la enfermedad ha sido erradicada, por lo que se cierra la ventana
+		 del juego.

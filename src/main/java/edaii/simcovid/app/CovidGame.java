@@ -5,6 +5,7 @@ import edaii.simcovid.game.Statistics;
 import edaii.simcovid.game.VirusParameters;
 import edaii.simcovid.ui.CovidGameWindow;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

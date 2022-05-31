@@ -26,13 +26,14 @@ public class CovidGameWindow {
         }
     }
 
+    public void close() {
+        root.dispose();
+    }
+
     class CovidWindowListener extends WindowAdapter {
         @Override
         public void windowClosing(WindowEvent e) {
             System.exit(0);
-        }
-        public void windowClosing(boolean close) {
-            if (close) System.exit(0);
         }
     }
 
@@ -49,6 +50,9 @@ public class CovidGameWindow {
 
         root.addWindowListener(new CovidWindowListener());
         root.setVisible(true);
+
+
+
     }
 
     public void setRowsAndColumns(int rows, int columns) {
@@ -71,9 +75,5 @@ public class CovidGameWindow {
             cells[i] = newCell;
             panel.add(newCell);
         }
-    }
-
-    public void close(){
-        root.dispose();
     }
 }
