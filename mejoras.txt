@@ -30,3 +30,4 @@ Nombre: Deteccion de fin del juego
 Descripcion: En el momento en que el numero de infectados llega a cero, 
 		 la enfermedad ha sido erradicada, por lo que se cierra la ventana
 		 del juego.
+===================================================
